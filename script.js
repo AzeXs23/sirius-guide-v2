@@ -161,7 +161,7 @@ function showPlaceDetails(placeId) {
             <textarea id="review-text" placeholder="Ваш отзыв..." required></textarea>
             <div class="review-image-upload">
               <input type="file" id="review-image-${place.id}" 
-                     accept="image/jpeg, image/png, image/webp, image/gif"
+                     accept="image/jpeg, image/png, image/webg, image/gif"
                      onchange="handleImageUpload(event, ${place.id})" 
                      style="display: none;">
               <label for="review-image-${place.id}">Прикрепить фото</label>
