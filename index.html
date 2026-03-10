@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сириус.Путеводитель</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Сириус.Путеводитель</h1>
+      <div class="filter">
+        <select id="categoryFilter">
+          <option value="all">Все категории</option>
+          <option value="museum">Музеи</option>
+          <option value="park">Парки</option>
+          <option value="attraction">Достопримечательности</option>
+        </select>
+      </div>
+    </header>
+
+    <main id="placesList">
+      <!-- Места загружаются автоматически -->
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
