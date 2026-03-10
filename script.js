@@ -20,8 +20,9 @@ async function loadPlaces() {
     placesData = data.record;
     renderPlaces();
   } catch (e) {
-    console.error('Ошибка:', e);
-    placesData = [];
+    console.error('Ошибка, используем данные из data.js:', e);
+    // Берем данные из data.js (глобальная переменная places)
+    placesData = [...places];
     renderPlaces();
   }
 }
