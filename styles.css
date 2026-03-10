@@ -1,0 +1,907 @@
+/* Основные стили с добавлением градиентного фона */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f9ff 0%, #e6f2ff 100%);
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Яркая шапка с акцентным градиентом */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+}
+
+h1 {
+  color: white;
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Стилизованный фильтр */
+.filter {
+  margin: 30px 0;
+  text-align: center;
+}
+
+select {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 2px solid #3498db;
+  font-size: 16px;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.1);
+  transition: all 0.3s;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2c3e50;
+  box-shadow: 0 2px 15px rgba(52, 152, 219, 0.2);
+}
+
+/* Улучшенные карточки мест с акцентными элементами */
+.places-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.place-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.place-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #FF6B35 0%, #00A896 100%);
+}
+
+.place-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.place-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.place-card:hover .place-img {
+  transform: scale(1.03);
+}
+
+.place-info {
+  padding: 25px;
+}
+
+.place-info h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.place-info h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #FF6B35;
+}
+
+.address, .description {
+  color: #555;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* Стилизованный рейтинг */
+.rating-section {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.rating-stars {
+  color: #FFD166;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Улучшенное модальное окно */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 15px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.3s;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: #FF6B35;
+}
+
+.modal-img-container {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.modal-img:hover {
+  transform: scale(1.05);
+}
+
+.modal-info {
+  padding: 30px;
+}
+
+.modal-info h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.modal-info h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B35 0%, #00A896 100%);
+}
+
+.modal-info p {
+  margin: 15px 0;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* Стилизованные отзывы */
+.reviews-section {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.reviews-section h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.reviews-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #00A896;
+}
+
+.review {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #FF6B35;
+  transition: transform 0.3s;
+}
+
+.review:hover {
+  transform: translateX(5px);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.review-rating {
+  color: #FFD166;
+  font-weight: bold;
+}
+
+.review-date {
+  font-size: 13px;
+  color: #777;
+  display: block;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* Улучшенная форма отзыва */
+.add-review {
+  margin-top: 40px;
+  padding: 25px;
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.add-review h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+}
+
+.add-review input,
+.add-review select,
+.add-review textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.add-review input:focus,
+.add-review select:focus,
+.add-review textarea:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  outline: none;
+}
+
+.add-review textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.add-review button {
+  background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: all 0.3s;
+  margin-top: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.add-review button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .places-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    max-height: 95vh;
+  }
+  
+  .modal-img-container {
+    height: 200px;
+  }
+  
+  header {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.place-card {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.place-card:nth-child(1) { animation-delay: 0.1s; }
+.place-card:nth-child(2) { animation-delay: 0.2s; }
+.place-card:nth-child(3) { animation-delay: 0.3s; }
+.place-card:nth-child(4) { animation-delay: 0.4s; }
+/* и так далее... */
+
+/* Основные стили */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f5f9ff;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+.filter {
+  margin: 20px 0;
+  text-align: center;
+}
+
+select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Карточки мест */
+.places-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.place-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.place-card:hover {
+  transform: translateY(-5px);
+}
+
+.place-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.place-info {
+  padding: 20px;
+}
+
+.place-info h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.address, .description {
+  color: #555;
+  margin: 10px 0;
+}
+
+.rating-section {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+  padding-left: 0;
+}
+
+.no-rating, .reviews-count {
+  display: block;
+  margin: 2px 0;
+}
+
+/* Модальное окно (исправленная версия) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-info h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.modal-info p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* Отзывы (подняты выше - исправление) */
+.reviews-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  order: 2;
+}
+
+.review {
+  margin: 15px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.review-header span:last-child {
+  color: #f39c12;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #777;
+  display: block;
+  text-align: right;
+}
+
+/* Форма отзыва (перемещена ниже) */
+.add-review {
+  margin-top: 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  order: 3;
+}
+
+.add-review h3 {
+  margin-top: 0;
+}
+
+.add-review input,
+.add-review select,
+.add-review textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.add-review textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-review button {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .places-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    max-height: 95vh;
+  }
+  
+  .modal-img {
+    height: 200px;
+  }
+}
+
+/* Основные стили остаются без изменений */
+
+/* Добавляем отступы между карточками в основном окне */
+.places-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px; /* Увеличиваем промежуток между карточками */
+  margin-top: 20px; /* Отступ сверху для всего списка */
+}
+
+/* Дополнительные отступы для каждой карточки */
+.place-card {
+  margin-bottom: 30px; /* Отступ снизу каждой карточки */
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Адаптивные отступы для мобильных */
+@media (max-width: 768px) {
+  .places-list {
+    gap: 20px; /* Меньший промежуток на мобильных */
+    margin-top: 15px;
+  }
+  
+  .place-card {
+    margin-bottom: 20px; /* Уменьшаем отступ на мобильных */
+  }
+}
+
+/* Обновленные стили карточек в основном окне */
+.place-card {
+  border: 2px solid #3498db; /* Синяя обводка */
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2); /* Светло-синяя тень */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Убираем верхнюю полосу (если она была) */
+.place-card::before {
+  display: none;
+}
+
+/* Эффект при наведении */
+.place-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+  border-color: #2980b9; /* Темнее при наведении */
+}
+
+/* Для модального окна (если нужно такое же оформление) */
+.modal-content {
+  border: 2px solid #3498db;
+  border-radius: 10px;
+}
+
+/* Адаптивная версия */
+@media (max-width: 768px) {
+  .place-card {
+    border-width: 1.5px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Убираем все подчеркивания в модальном окне */
+.modal-info h2::after,
+.modal-info h3::after,
+.reviews-section h3::after {
+  display: none !important;
+}
+
+/* Оставляем только полное подчеркивание названия объекта */
+.modal-info h2 {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-info h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Полная ширина */
+  height: 2px;
+  background: #3498db; /* Синее подчеркивание */
+  display: block !important; /* Обязательно оставляем */
+}
+
+/* Для адаптивности */
+@media (max-width: 768px) {
+  .modal-info h2::after {
+    height: 1.5px;
+  }
+}
+
+/* Для карточек в основном окне */
+.place-info h2 {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.place-info h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Полное подчеркивание на всю ширину */
+  height: 2px;
+  background: #3498db; /* Синий цвет как в рамке */
+  display: block;
+}
+
+/* Для модального окна (оставляем как было) */
+.modal-info h2::after {
+  width: 100% !important; /* Полное подчеркивание */
+  background: #3498db !important; /* Тот же синий цвет */
+  height: 2px !important;
+}
+
+/* Убираем все другие подчеркивания */
+.modal-info h3::after,
+.reviews-section h3::after {
+  display: none !important;
+}
+
+/* Основное изображение в модальном окне */
+.main-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Изображения в отзывах */
+.review-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* Форма загрузки изображения */
+.review-image-upload {
+  margin: 10px 0;
+}
+
+.review-image-upload label {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.review-image-upload label:hover {
+  background: #e0e0e0;
+}
+
+.review-image-preview {
+  max-width: 100%;
+  max-height: 150px;
+  margin-top: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+/* Основные стили изображений */
+.place-img, .main-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Изображения в отзывах */
+.review-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+  display: block;
+}
+
+.review-image-preview {
+  max-width: 100%;
+  max-height: 150px;
+  margin-top: 10px;
+  border-radius: 4px;
+  display: none;
+}
+
+/* Форма загрузки изображения */
+.review-image-upload {
+  margin: 10px 0;
+}
+
+.review-image-upload label {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.review-image-upload label:hover {
+  background: #e0e0e0;
+}
+
+/* Заглушка для отсутствующих изображений */
+img[src="images/no-image.jpg"] {
+  background: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Основные стили изображений */
+.place-img, .main-image {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Изображения в отзывах */
+.review-image, .review-image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin: 10px 0;
+  display: block;
+}
+
+/* Форма загрузки изображения */
+.review-image-upload {
+  margin: 10px 0;
+}
+
+.review-image-upload label {
+  display: inline-block;
+  padding: 8px 15px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.review-image-upload label:hover {
+  background: #e0e0e0;
+}
+
+.delete-review-btn {
+  background: none;
+  border: none;
+  color: #ff4444;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0 5px;
+}
+
+.delete-review-btn:hover {
+  color: #cc0000;
+}
